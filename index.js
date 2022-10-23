@@ -27,6 +27,8 @@ function prevImg() {
 }
 
 function updateActive() {
+    if (innerWidth < 768)
+        return;
     active.classList.remove("active");
     active = document.getElementById(index);
     active.classList.add("active");
