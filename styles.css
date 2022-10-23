@@ -138,28 +138,30 @@ li {
 #gallery {
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
 .active {
     display: block;
-    position: relative;
     z-index: 1;
 }
 
-li:has(+ .active), .active + li {
+li:has(+ .active), #gallery:has(.active:first-child) li:last-child {
     display: block;
     position: absolute;
-    top: 150%;
+    top: 50%;
     opacity: .4;
     scale: .75;
-}
-
-li:has(+ .active) {
     left: 50%;
     translate: -100% -50%;
 }
 
-.active + li {
+.active + li, #gallery:has(.active:last-child) li:first-child {
+    display: block;
+    position: absolute;
+    top: 50%;
+    opacity: .4;
+    scale: .75;
     right: 50%;
     translate: 100% -50%;
 }
