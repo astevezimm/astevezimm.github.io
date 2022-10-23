@@ -2,9 +2,15 @@ const IMG_COUNT = 20;
 
 let htmlContent = "";
 for (let i = 1; i <= IMG_COUNT; i++)
-    htmlContent += `<li><img id="${i}" src="images/i${i.toString().padStart(2, '0')}.jpg" alt="Leila" /></li>`;
+    htmlContent += `<li id="${i}">
+        <img src="images/i${i.toString().padStart(2, '0')}.jpg" alt="Leila" />
+    </li>`;
 
-document.getElementById("gallery").innerHTML = htmlContent;
+const gallery = document.getElementById("gallery");
+gallery.innerHTML = htmlContent;
+
+for (let child of gallery.children)
+    child.addEventListener("click", handleClick)
 
 let index = IMG_COUNT;
 let active = document.getElementById(index);
@@ -24,4 +30,12 @@ function updateActive() {
     active.classList.remove("active");
     active = document.getElementById(index);
     active.classList.add("active");
+}
+
+function handleClick(event) {
+    const id = +event.target.parentElement.id;
+    if (index === 1 && id === IMG_COUNT || id < index)
+        prevImg();
+    else if (index === IMG_COUNT && id === 1 || id > index)
+        nextImg();
 }

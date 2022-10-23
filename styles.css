@@ -130,6 +130,36 @@ img {
     max-width: 35rem;
 }
 
+li {
+    display: none;
+    transition: all .5s;
+}
+
+#gallery {
+    display: flex;
+    justify-content: center;
+}
+
 .active {
-    border: solid yellow 10px;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+li:has(+ .active), .active + li {
+    display: block;
+    position: absolute;
+    top: 150%;
+    opacity: .4;
+    scale: .75;
+}
+
+li:has(+ .active) {
+    left: 50%;
+    translate: -100% -50%;
+}
+
+.active + li {
+    right: 50%;
+    translate: 100% -50%;
 }
