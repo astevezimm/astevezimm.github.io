@@ -43,3 +43,5 @@ function handleClick(event) {
     else if (id > index)
         nextImg();
 }
+
+document.getElementById("year").innerText = (new Date()).getFullYear();
