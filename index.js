@@ -34,8 +34,6 @@ function updateActive() {
 
 function handleClick(event) {
     const id = +event.target.parentElement.id;
-    console.log(id);
-    console.log(index);
     if (index === 1 && id === IMG_COUNT)
         prevImg();
     else if (index === IMG_COUNT && id === 1)

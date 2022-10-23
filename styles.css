@@ -138,8 +138,10 @@ li {
 
 #gallery {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     position: relative;
+    text-align: center;
 }
 
 .active {
@@ -165,4 +167,33 @@ li:has(+ .active), #gallery:has(.active:first-child) li:last-child {
     scale: .75;
     right: 50%;
     translate: 100% -50%;
+}
+
+@media screen and (max-width: 1024px) {
+    li:has(+ .active), #gallery:has(.active:first-child) li:last-child {
+        left: 0;
+        translate: -25% -50%;
+    }
+    .active + li, #gallery:has(.active:last-child) li:first-child {
+        right: 0;
+        translate: 25% -50%;
+    }
+    .active {
+        max-width: 30rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    li {
+        display: block;
+        position: static;
+        opacity: 1;
+        scale: 1;
+        translate: 0;
+    }
+    #gallery {
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
 }
