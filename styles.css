@@ -129,3 +129,7 @@ img {
     width: 100%;
     max-width: 35rem;
 }
+
+.active {
+    border: solid yellow 10px;
+}
