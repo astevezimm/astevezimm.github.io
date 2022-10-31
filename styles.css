@@ -169,6 +169,14 @@ li:has(+ .active), #gallery:has(.active:first-child) li:last-child {
     translate: 100% -50%;
 }
 
+li:has(+ .active):hover,
+#gallery:has(.active:first-child) li:last-child:hover,
+.active + li:hover,
+#gallery:has(.active:last-child) li:first-child:hover {
+    border: solid yellow 2px;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 1024px) {
     li:has(+ .active), #gallery:has(.active:first-child) li:last-child {
         left: 0;
